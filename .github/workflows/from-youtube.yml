@@ -21,6 +21,7 @@ jobs:
     
   my-build:
     runs-on: ubuntu-latest
+    needs: my-testig
     steps:
       - name: my-build-step-1
         run: echo '2 the world is mine my build'
