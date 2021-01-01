@@ -17,11 +17,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: my-testing-step-1
-        run: echo world
+        run: echo the world is mine my testing
     
   my-build:
     runs-on: ubuntu-latest
     steps:
       - name: my-build-step-1
-        run: echo world
+        run: echo the world is mine my build
     
