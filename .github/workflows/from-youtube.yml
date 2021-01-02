@@ -52,7 +52,7 @@ jobs:
       - name: install minimal config
         run: |
           npm install --save-dev eslint
-          eslint -v
+          npx eslint -v
           npx eslint .
 
       - name: list in my-build
