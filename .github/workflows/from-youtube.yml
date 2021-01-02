@@ -51,7 +51,8 @@ jobs:
 
       - name: install minimal config
         run: |
-          npm install --save-dev eslint
+          # npm install --save-dev eslint
+          make install
           npx eslint -v
           npx eslint .
 
