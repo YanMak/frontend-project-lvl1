@@ -1,6 +1,9 @@
 # This is a basic workflow to help you get started with Actions
 
 name: CI-19122020
+env:
+  APPLICATION_NAME: 'MyApp' 
+  DEPLOY_PACKAGE_NAME: "MyApp_package_file ${{ github.sha }}"
 
 # Controls when the action will run. 
 on: 
@@ -18,6 +21,12 @@ jobs:
     steps:
       - name: my-testing-step-1
         run: echo '1 the world is mine my testing'
+        
+      - name: execute few commands
+        run: |
+          echo "message 1"
+          echo "message 2"
+          echo "Application name ${{ env.APPLICATION_NAME }}"
     
   my-build:
     runs-on: ubuntu-latest
@@ -25,4 +34,9 @@ jobs:
     steps:
       - name: my-build-step-1
         run: echo '2 the world is mine my build'
-    
+        
+      - name: printing deployment package
+        run: |
+          echo "message 3"
+          echo "message 4"
+          echo "Application name ${{ env.DEPLOY_PACKAGE_NAME }}"
