@@ -45,7 +45,10 @@ jobs:
     steps:
       - name: my-build-step-1
         run: echo '2 the world is mine my build'
-        
+
+      - name: clone repo in build
+        uses: actions/checkout@v1
+
       - name: list in my-build
         run: |
           ls -la
