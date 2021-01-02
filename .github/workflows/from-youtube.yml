@@ -46,6 +46,10 @@ jobs:
       - name: my-build-step-1
         run: echo '2 the world is mine my build'
         
+      - name: list in my-build
+        run: |
+          ls -la
+          
       - name: printing deployment package
         run: |
           echo "message 3"
