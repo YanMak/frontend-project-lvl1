@@ -28,7 +28,14 @@ jobs:
           echo "message 2"
           echo "Application name ${{ env.APPLICATION_NAME }}"
           
-      - name: list
+      - name: list at tesing
+        run: |
+          ls -la
+          
+      - name: clone repo
+        uses: actions/checkout@v1
+        
+      - name: list after repo clone
         run: |
           ls -la
     
