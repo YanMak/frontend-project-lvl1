@@ -50,7 +50,10 @@ jobs:
         uses: actions/checkout@v1
 
       - name: install minimal config
-        run: npm install --save-dev eslint
+        run: |
+          npm install --save-dev eslint
+          eslint -v
+          npx eslint .
 
       - name: list in my-build
         run: |
