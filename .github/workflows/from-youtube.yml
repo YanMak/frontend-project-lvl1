@@ -30,7 +30,7 @@ jobs:
           
       - name: list
         run: |
-          ls la
+          ls -la
     
   my-build:
     runs-on: ubuntu-latest
