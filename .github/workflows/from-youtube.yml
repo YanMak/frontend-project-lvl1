@@ -27,6 +27,10 @@ jobs:
           echo "message 1"
           echo "message 2"
           echo "Application name ${{ env.APPLICATION_NAME }}"
+          
+      - name: list
+        run: |
+          ls la
     
   my-build:
     runs-on: ubuntu-latest
