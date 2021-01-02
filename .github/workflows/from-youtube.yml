@@ -49,6 +49,9 @@ jobs:
       - name: clone repo in build
         uses: actions/checkout@v1
 
+      - name: install minimal config
+        run: npm install --save-dev eslint
+
       - name: list in my-build
         run: |
           ls -la
