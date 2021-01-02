@@ -65,5 +65,5 @@ jobs:
           echo "message 3"
           echo "message 4"
           echo "Application name ${{ env.DEPLOY_PACKAGE_NAME }}"
-          eslint -v
+          npx eslint -v
           make lint
