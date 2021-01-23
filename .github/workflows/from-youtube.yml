@@ -1,0 +1,69 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI-19122020
+env:
+  APPLICATION_NAME: 'MyApp' 
+  DEPLOY_PACKAGE_NAME: "MyApp_package_file ${{ github.sha }}"
+
+# Controls when the action will run. 
+on: 
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push: 
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  my-testig:
+    runs-on: ubuntu-latest
+    steps:
+      - name: my-testing-step-1
+        run: echo '1 the world is mine my testing'
+        
+      - name: execute few commands
+        run: |
+          echo "message 1"
+          echo "message 2"
+          echo "Application name ${{ env.APPLICATION_NAME }}"
+          
+      - name: list at tesing
+        run: |
+          ls -la
+          
+      - name: clone repo
+        uses: actions/checkout@v1
+        
+      - name: list after repo clone
+        run: |
+          ls -la
+    
+  my-build:
+    runs-on: ubuntu-latest
+    needs: my-testig
+    steps:
+      - name: my-build-step-1
+        run: echo '2 the world is mine my build'
+
+      - name: clone repo in build
+        uses: actions/checkout@v1
+
+      - name: install minimal config
+        run: |
+          # npm install --save-dev eslint
+          make install
+          npx eslint -v
+          npx eslint .
+
+      - name: list in my-build
+        run: |
+          ls -la
+          
+      - name: printing deployment package
+        run: |
+          echo "message 3"
+          echo "message 4"
+          echo "Application name ${{ env.DEPLOY_PACKAGE_NAME }}"
+          npx eslint -v
+          make lint
